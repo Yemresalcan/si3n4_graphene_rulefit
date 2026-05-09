@@ -166,7 +166,7 @@ Interpretability Analysis
 
 ```bash
 # Clone the repository
-git clone https://github.com/yauz3/si3n4_graphene_rulefit.git
+git clone https://github.com/Yemresalcan/si3n4_graphene_rulefit.git
 cd si3n4_graphene_rulefit
 
 # Install dependencies
