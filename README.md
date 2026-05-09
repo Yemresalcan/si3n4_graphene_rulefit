@@ -249,12 +249,12 @@ openpyxl>=3.0
 If you use this code or dataset, please cite:
 
 ```bibtex
-@article{salcan2025rulefit,
+@article{salcan2026rulefit,
   title   = {Interpretable Machine Learning Framework for Predicting
              Vickers Hardness of Graphene-Added Si$_3$N$_4$ Ceramics},
   author  = {Salcan, Yunus Emre and others},
   journal = {Journal of Materials Science},
-  year    = {2025},
+  year    = {2026},
   note    = {Under review}
 }
 ```
