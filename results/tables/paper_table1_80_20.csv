@@ -1,0 +1,7 @@
+Model,R2,MAE,RMSE
+"XGBoost (Default Features, Tuned)",0.8189,1.3796,1.9483
+"XGBoost (Extra Features, Tuned)",0.8219,1.2535,1.9323
+ElasticNet,0.6765,1.9249,2.604
+RuleFit (Tuned),0.7543,1.6422,2.2692
+RuleFit (Default),0.7846,1.484,2.1248
+DNN Small (32-16),0.7582,1.545,2.2511

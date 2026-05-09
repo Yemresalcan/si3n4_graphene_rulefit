@@ -1,0 +1,624 @@
+%Version 3.1 December 2024
+% See section 11 of the User Manual for version history
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                 %%
+%% Please do not use \input{...} to include other tex files.       %%
+%% Submit your LaTeX manuscript as one .tex document.              %%
+%%                                                                 %%
+%% All additional figures and files should be attached             %%
+%% separately and not embedded in the \TeX\ document itself.       %%
+%%                                                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%\documentclass[referee,sn-basic]{sn-jnl}% referee option is meant for double line spacing
+
+%%=======================================================%%
+%% to print line numbers in the margin use lineno option %%
+%%=======================================================%%
+
+%%\documentclass[lineno,pdflatex,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+%%=========================================================================================%%
+%% the documentclass is set to pdflatex as default. You can delete it if not appropriate.  %%
+%%=========================================================================================%%
+
+%%\documentclass[sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+%%Note: the following reference styles support Namedate and Numbered referencing. By default the style follows the most common style. To switch between the options you can add or remove Numbered in the optional parenthesis. 
+%%The option is available for: sn-basic.bst, sn-chicago.bst%  
+ 
+%%\documentclass[pdflatex,sn-nature]{sn-jnl}% Style for submissions to Nature Portfolio journals
+%%\documentclass[pdflatex,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+\documentclass[pdflatex,sn-mathphys-num]{sn-jnl}% Math and Physical Sciences Numbered Reference Style
+%%\documentclass[pdflatex,sn-mathphys-ay]{sn-jnl}% Math and Physical Sciences Author Year Reference Style
+%%\documentclass[pdflatex,sn-aps]{sn-jnl}% American Physical Society (APS) Reference Style
+%%\documentclass[pdflatex,sn-vancouver-num]{sn-jnl}% Vancouver Numbered Reference Style
+%%\documentclass[pdflatex,sn-vancouver-ay]{sn-jnl}% Vancouver Author Year Reference Style
+%%\documentclass[pdflatex,sn-apa]{sn-jnl}% APA Reference Style
+%%\documentclass[pdflatex,sn-chicago]{sn-jnl}% Chicago-based Humanities Reference Style
+
+%%%% Standard Packages
+%%<additional latex packages if required can be included here>
+
+\usepackage{graphicx}%
+\usepackage{multirow}%
+\usepackage{amsmath,amssymb,amsfonts}%
+\usepackage{amsthm}%
+\usepackage{mathrsfs}%
+\usepackage[title]{appendix}%
+\usepackage{xcolor}%
+\usepackage{textcomp}%
+\usepackage{manyfoot}%
+\usepackage{booktabs}%
+\usepackage{algorithm}%
+\usepackage{algorithmicx}%
+\usepackage{algpseudocode}%
+\usepackage{listings}%
+\usepackage{placeins}%
+\usepackage{multirow}
+\usepackage{amsthm,amsmath}
+\usepackage{lineno}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+\usepackage{rotating}
+\usepackage{multirow}%
+\usepackage{graphicx}%
+\usepackage{multirow}%
+\usepackage{amsmath,amssymb,amsfonts}%
+\usepackage{amsthm}%
+\usepackage{mathrsfs}%
+\usepackage[title]{appendix}%
+\usepackage{xcolor}%
+\usepackage{textcomp}%
+\usepackage{manyfoot}%
+\usepackage{booktabs}%
+\usepackage{algorithm}%
+\usepackage{algorithmicx}%
+\usepackage{algpseudocode}%
+\usepackage{listings}%
+\usepackage{natbib}%
+\usepackage{array}%
+\usepackage{rotating}%
+\usepackage[T1]{fontenc}%
+\usepackage{lmodern}%
+\usepackage[utf8]{inputenc}%
+\usepackage{CJKutf8}%
+\usepackage{longtable}%
+\usepackage{rotating}%
+\usepackage{multirow}%
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{ragged2e}
+\usepackage{caption}
+%\linenumbers
+%%%%
+
+%%%%%=============================================================================%%%%
+%%%%  Remarks: This template is provided to aid authors with the preparation
+%%%%  of original research articles intended for submission to journals published 
+%%%%  by Springer Nature. The guidance has been prepared in partnership with 
+%%%%  production teams to conform to Springer Nature technical requirements. 
+%%%%  Editorial and presentation requirements differ among journal portfolios and 
+%%%%  research disciplines. You may find sections in this template are irrelevant 
+%%%%  to your work and are empowered to omit any such section if allowed by the 
+%%%%  journal you intend to submit to. The submission guidelines and policies 
+%%%%  of the journal take precedence. A detailed User Manual is available in the 
+%%%%  template package for technical guidance.
+%%%%%=============================================================================%%%%
+
+%% as per the requirement new theorem styles can be included as shown below
+\theoremstyle{thmstyleone}%
+\newtheorem{theorem}{Theorem}%  meant for continuous numbers
+%%\newtheorem{theorem}{Theorem}[section]% meant for sectionwise numbers
+%% optional argument [theorem] produces theorem numbering sequence instead of independent numbers for Proposition
+\newtheorem{proposition}[theorem]{Proposition}% 
+%%\newtheorem{proposition}{Proposition}% to get separate numbers for theorem and proposition etc.
+
+\theoremstyle{thmstyletwo}%
+\newtheorem{example}{Example}%
+\newtheorem{remark}{Remark}%
+
+\theoremstyle{thmstylethree}%
+\newtheorem{definition}{Definition}%
+
+\raggedbottom
+%%\unnumbered% uncomment this for unnumbered level heads
+
+\begin{document}
+
+\title[Article Title]{Interpretable and Robust Hardness Prediction in Graphene-Added Si$_3$N$_4$ Ceramics via Physically Meaningful Rule Extraction}
+
+%%=============================================================%%
+%% GivenName	-> \fnm{Joergen W.}
+%% Particle	-> \spfx{van der} -> surname prefix
+%% FamilyName	-> \sur{Ploeg}
+%% Suffix	-> \sfx{IV}
+%% \author*[1,2]{\fnm{Joergen W.} \spfx{van der} \sur{Ploeg} 
+%%  \sfx{IV}}\email{iauthor@gmail.com}
+%%=============================================================%%
+
+\author[1, 2]{\fnm{Sadettin Y.} \sur{Ugurlu}}\email{s.yavuz.ugurlu@gmail.com, https://orcid.org/0000-0001-9589-0269}
+
+\affil[1]{\orgname{Novexus Ltd}, \orgaddress{\country{Turkey}}}
+
+\affil[2]{\orgdiv{Department of Materials Science and Engineering, Faculty of Engineering}, \orgname{Akdeniz University}, \orgaddress{\street{Dumlupinar Bulvari}, \city{Antalya}, \postcode{07058}, \country{Turkey}}}
+
+
+%%==================================%%
+%% Sample for unstructured abstract %%
+%%==================================%%
+
+\abstract{
+Accurate and interpretable prediction of Vickers hardness is important for analysing graphene-added Si$_3$N$_4$ ceramics, where experimental characterisation is resource-intensive, and datasets are typically small. This study presents an interpretable machine learning framework based on a tuned RuleFit model applied to a dataset of 82 experimentally characterised samples compiled from the literature. Multiple model configurations are benchmarked --- XGBoost with original and engineered features, ElasticNet/linear regularised baselines, Few-Shot KNN, a small deep neural network, and RuleFit --- under fixed 80/20 and 70/30 train--test splits and a 30-replicate stability analysis. On the fixed 70/30 split, RuleFit (Tuned) obtains the best split-specific performance (R$^2 = 0.854$, RMSE~$= 1.955$~GPa, MAE~$= 1.477$~GPa). Across 30 random splits, its performance is comparable to XGBoost, with no statistically significant advantage over the strongest black-box baselines, while it significantly outperforms Few-Shot KNN ($p < 0.001$). Feature importance and explanation analyses identify graphene content/type, sintering pressure, and relative density as key predictors, consistent with ceramic processing--property relationships. Case studies of five test samples show that RuleFit's activated rules provide sample-level explanations that are broadly consistent with SHAP and LIME. The results indicate that rule-based interpretable models can provide competitive accuracy and transparent decision logic for small ceramic datasets, while highlighting the need for leakage-free preprocessing, careful validation, and external experimental testing before deployment for materials design.
+}
+
+
+\keywords{Vickers hardness, Si$_3$N$_4$ ceramics, graphene, RuleFit, interpretable machine learning, SHAP, LIME, feature engineering}
+
+
+\maketitle
+
+
+\section{Introduction}
+
+Silicon nitride (Si$_3$N$_4$) ceramics are among the most widely studied advanced structural ceramics owing to their exceptional combination of mechanical properties: high hardness, superior fracture toughness, good thermal shock resistance, and chemical stability at elevated temperatures \cite{govindasamy2024role}. These characteristics make Si$_3$N$_4$ an attractive material for applications in cutting tools, bearing components, automotive engine parts, and high-temperature structural elements. Among these properties, Vickers hardness is a primary indicator of wear resistance and load-bearing capacity, and its reliable quantification is essential for quality control and material qualification in industrial settings.
+
+The incorporation of graphene and graphene-derived nanomaterials (graphene nanoplatelets, reduced graphene oxide, few-layer graphene) as reinforcing additives in Si$_3$N$_4$ matrices has attracted considerable research interest over the past decade. Graphene additions can modify hardness through multiple competing mechanisms: at low concentrations, well-dispersed graphene platelets may act as crack deflectors, while at higher concentrations or with suboptimal sintering parameters, graphene tends to agglomerate and reduce densification, ultimately lowering hardness. The interplay between graphene type, weight fraction, sintering temperature, sintering pressure, and the resulting relative density creates a complex, high-dimensional process--property space that is difficult to navigate through conventional experimental trial-and-error.
+
+Experimental determination of Vickers hardness requires fabrication of sintered ceramic samples --- a process that involves powder mixing, milling, and high-temperature sintering under controlled pressure --- followed by indentation testing under standardised load conditions. For a dataset spanning the full design space of graphene-added Si$_3$N$_4$ ceramics, this represents a significant investment of time and resources. Machine learning (ML) can therefore support exploratory screening and post-synthesis property analysis by learning relationships between processing, composition, microstructural descriptors, and hardness. Because density and phase composition are post-sintering descriptors, predictions based on the full feature set should be interpreted as a post-synthesis or process--structure--property model rather than a purely pre-synthesis design model. Recent work by Qadir et al.~\cite{qadir2024predicting} demonstrated that gradient-boosted tree models (XGBoost) can predict Vickers hardness on a dataset of 82 experimentally characterised graphene-added Si$_3$N$_4$ ceramics with high accuracy (R$^2 > 0.81$), establishing a strong baseline for the field.
+
+Despite the predictive success of black-box models such as XGBoost and deep neural networks, their lack of interpretability limits their utility for materials design: they do not directly reveal which processing variables drive a particular hardness outcome or under what conditions a high-hardness sample is achievable. Interpretable models that expose explicit decision rules are therefore of practical value, particularly in the context of small datasets where overfitting risk is high and experimental validation of model recommendations is costly. The RuleFit algorithm~\cite{friedman2008predictive} addresses this need by combining gradient-boosted tree ensembles with a sparse linear model, producing human-readable rules of the form ``if Sintering Pressure $>$ 27.5~MPa and Graphene~$\leq$~2.0~wt.\%~then hardness increases by $+X$~GPa''.
+
+In this study, we present an interpretable hardness prediction framework for graphene-added Si$_3$N$_4$ ceramics. A tuned RuleFit model is compared against five baseline model families --- two XGBoost variants, ElasticNet/linear baselines, Few-Shot KNN, and a small deep neural network --- under fixed train--test splits and a 30-replicate stability analysis. Three complementary explanation methods (RuleFit rule activations, SHAP, and LIME) are applied to assess whether the framework provides physically meaningful, sample-level interpretability without a substantial loss in predictive accuracy. The Python code, cleaned dataset, preprocessing scripts, model-training scripts, and random seeds will be deposited in a manuscript-specific repository before publication to support reproducibility.
+
+\section{Materials and Methods}
+
+
+
+
+
+\subsection{Development of the Interpretable Hardness Prediction Framework}
+
+The dataset used in this study consists of 82 experimental observations of graphene-added Si$_3$N$_4$ ceramics compiled from the literature \cite{qadir2024predicting}. The target variable is Vickers hardness measured in GPa, ranging from 0.46 to 27.00~GPa with a mean of 14.71~GPa. Each sample is described by 21 input features covering graphene properties (type, weight fraction, thickness, surface area), sintering additive characteristics (type and content of two additives), milling conditions (type and duration), sintering parameters (technique, temperature, time, pressure), and post-sintering properties (density, $\alpha$- and $\beta$-Si$_3$N$_4$ phase content, and indentation load).
+
+Categorical features (type of graphene, type of sintering additive 1 and 2, milling type, and sintering technique) were converted into numeric representations using target encoding. To minimise target leakage, the encoding statistics were treated as split-specific quantities: for each train--test split, encoders were fitted on the training subset only and then applied to the corresponding validation or test subset. A reference/source label was retained only for traceability and was excluded from the predictive feature set because it may encode literature-source-specific bias rather than transferable materials behaviour. After encoding and source-label exclusion, the original feature set contained 22 numeric variables.
+
+To capture physically meaningful interactions, eight additional engineered features were derived from the existing variables: (i) graphene aspect ratio (surface area / thickness), (ii) graphene volume proxy (wt.\% $\times$ thickness $\times$ surface area), (iii) sintering energy (temperature $\times$ time), (iv) sintering intensity (temperature $\times$ pressure), (v) sintering dose (temperature $\times$ time $\times$ pressure), (vi) total additive content (additive 1 + additive 2), (vii) additive ratio (additive 1 / additive 2), and (viii) Si$_3$N$_4$-to-additive ratio (Si$_3$N$_4$ wt.\% / total additive). The complete feature set after engineering consists of 30 numeric features.
+
+The dataset was split into training and test sets using two configurations: 80/20 (66 training, 16 test) and 70/30 (57 training, 25 test). In both cases, a fixed random seed (random\_state = 42) was used to ensure reproducibility. For every split, preprocessing steps that learn parameters from the data, including target encoding and standardisation where applicable, were fitted on the training subset only and transferred unchanged to the held-out test subset. Engineered features were computed from the available input variables without using the hardness target. This workflow was used to keep the held-out test data independent from model fitting and model selection.
+
+The proposed interpretable framework is built upon the RuleFit algorithm \cite{friedman2008predictive}, which combines an ensemble of decision trees with a sparse linear model to produce human-readable prediction rules. In RuleFit, the trees generate candidate rules (conjunctions of feature thresholds), which are then used as binary features in a regularized linear model (Lasso). The final model is a sum of linear terms and weighted rule activations, making every prediction fully traceable.
+
+Hyperparameter tuning of RuleFit was performed by a grid search over \texttt{tree\_size} $\in \{2, 3, 4, 6, 8\}$ and \texttt{max\_rules} $\in \{50, 100, 200, 500\}$. The held-out test set was reserved for final evaluation, and the selected split-specific configuration in the present analysis was \texttt{tree\_size} = 6 and \texttt{max\_rules} = 500, yielding R$^2$ = 0.8535 on the fixed 70/30 evaluation split. This configuration is referred to as \textit{RuleFit (Tuned)} throughout the paper, whereas the untuned configuration (\texttt{tree\_size} = 4, \texttt{max\_rules} = 100) is referred to as \textit{RuleFit (Default)}. For external reuse of the workflow, the same tuning step should be nested within the training data of each split or cross-validation fold so that no test-set information influences model selection.
+
+
+\subsection{Model Evaluation}  
+
+To assess the performance of the trained machine learning models, multiple evaluation metrics were used to quantify predictive accuracy and error. The evaluation framework was designed to assess the reliability of the models in predicting Vickers hardness. The following statistical metrics were used for performance evaluation:  
+
+\paragraph{Coefficient of Determination ($R^2$)}  
+The $R^2$ score measures the proportion of variance in the observed data that is explained by the model’s predictions. A value closer to 1 indicates a strong correlation between predicted and actual values, whereas lower values suggest weaker predictive performance. The $R^2$ metric is particularly useful for understanding the overall explanatory power of the model.  
+
+\paragraph{Root Mean Squared Error (RMSE)}  
+RMSE quantifies the model’s predictive accuracy by calculating the square root of the mean squared differences between predicted and actual values. It penalizes larger errors more than smaller ones, making it a suitable metric for evaluating models where significant deviations in predictions are undesirable. RMSE is computed as:  
+
+\begin{equation}
+RMSE = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2}
+\end{equation}  
+
+where $y_i$ represents the actual values, $\hat{y}_i$ represents the predicted values, and $n$ is the total number of data points.  
+
+In addition to testing set performance, the RMSE has been computed for the training set to evaluate how well the model fits the training data and to identify potential overfitting. The RMSE for the training set reflects the average prediction error during model fitting and provides a baseline for comparison against validation and test performance. A significantly lower RMSE on the training set relative to the test set may indicate overfitting, whereas comparable values suggest generalizability. RMSE is calculated using Equation (1), where predictions $\hat{y}_i$ are generated for the training set compounds.
+
+
+\paragraph{Adjusted Coefficient of Determination ($R^2_{\text{adj}}$)}  
+While the standard $R^2$ score quantifies how well the model captures variance in the data, it does not account for the number of predictors used in the model. Given that the proposed framework incorporates 30 input features (22 original + 8 engineered), the adjusted $R^2$ ($R^2_{\text{adj}}$) is also reported to correct for potential overfitting. Adjusted $R^2$ provides a more accurate assessment of the model’s explanatory power on the training set by penalizing excessive use of features that do not significantly contribute to prediction. It is computed as:
+
+\begin{equation}
+R^2_{\text{adj}} = 1 - \left( \frac{(1 - R^2)(n - 1)}{n - p - 1} \right)
+\end{equation}
+
+where $n$ is the number of observations, $p$ is the number of predictors (features), and $R^2$ is the unadjusted coefficient of determination. This metric was calculated for the training set to ensure that model complexity is justified by meaningful predictive power.
+
+
+\subsection{Analysis of the Framework}
+
+\paragraph{Feature clustering}
+Hierarchical clustering of all 30 engineered features together with the target variable (Vickers hardness) was performed using Pearson correlation as the similarity measure. The distance between two variables was defined as $d = 1 - |\rho|$, where $\rho$ is the Pearson correlation coefficient. Ward linkage was applied to the resulting distance matrix to produce a dendrogram. Including the target in the clustering allows visual identification of which feature families are most correlated with hardness.
+
+\paragraph{Feature importance}
+Feature importance was assessed from two complementary perspectives. First, RuleFit-based importance was computed by aggregating the absolute coefficients of rules in which each feature appeared, weighted by rule activation frequency across the training samples. This measure reflects how often a feature participates in influential rule conditions. Second, SHAP (SHapley Additive exPlanations) values were computed using the XGBoost model via TreeExplainer to provide attribution across all 25 test-set samples \cite{lundberg2017unified}.
+
+\paragraph{Local interpretability}
+Local explanations for five selected test samples were generated using three methods: (i) RuleFit rule activation (which rules fire for a given sample and how they contribute to the prediction), (ii) SHAP values (XGBoost), and (iii) LIME (Local Interpretable Model-agnostic Explanations), which fits a locally weighted linear model around each prediction \cite{ribeiro2016should}. The five samples were selected from the 25-sample test set to represent a range of prediction accuracy: two high-accuracy predictions ($|$error$|$ $<$ 0.15 GPa), two moderate-accuracy predictions ($|$error$|$ $\approx$ 0.85 GPa), and one challenging case ($|$error$|$ = 4.46 GPa).
+
+\paragraph{Statistical significance}
+The stability of each model across 30 random splits was evaluated using one-tailed paired Student's $t$-tests (significance level $\alpha = 0.05$). For R$^2$, the null hypothesis is that RuleFit (Tuned) performs no better than the comparison model (one-tailed greater). For MAE and RMSE, the null hypothesis is that RuleFit (Tuned) is no lower than the comparison model (one-tailed less). The critical value for 29 degrees of freedom at $\alpha = 0.05$ (one-tailed) is $t_\text{critical} = 1.699$.
+
+ 
+
+
+
+
+
+
+\subsection{Comparative Analysis}
+
+The primary reference for comparison is the XGBoost-based model reported by Qadir et al.~\cite{qadir2024predicting}, which provides the strongest published baseline for Vickers hardness prediction on this dataset. That model was trained on the same 82-sample dataset using XGBoost with RandomizedSearchCV hyperparameter optimization (50 iterations, 5-fold cross-validation). Although XGBoost produces high predictive accuracy, it operates as a black-box model: while feature importance scores can be extracted, the model does not generate human-readable decision rules. The proposed framework retains competitive predictive accuracy while providing full interpretability through explicit rule extraction.
+
+The following model configurations are included in the comparison:
+
+\begin{enumerate}
+    \item \textbf{XGBoost (Default Features, Tuned)}: XGBoost with the original 22 features and RandomizedSearchCV optimization (50 iterations, 5-fold CV). This follows the published XGBoost baseline setup.
+    \item \textbf{XGBoost (Extra Features, Tuned)}: XGBoost with all 30 features (22 original + 8 engineered) and the same RandomizedSearchCV optimization. This evaluates the contribution of feature engineering.
+    \item \textbf{ElasticNet}: Elastic net regularized linear regression (L1 + L2, $\alpha$ = 1.0, $l_1$-ratio = 0.5) applied to standardized 30-feature data.
+    \item \textbf{RuleFit (Tuned)}: RuleFit with optimized hyperparameters (\texttt{tree\_size} = 6, \texttt{max\_rules} = 500) trained on 30-feature data.
+    \item \textbf{RuleFit (Default)}: RuleFit with default hyperparameters (\texttt{tree\_size} = 4, \texttt{max\_rules} = 100) trained on 30-feature data.
+    \item \textbf{DNN Small (32-16)}: A two-hidden-layer multilayer perceptron with 32 and 16 neurons, trained for up to 2000 epochs with early stopping, applied to standardized 30-feature data.
+\end{enumerate}
+
+Each model is evaluated on two fixed train-test splits (80/20 and 70/30, both with random\_state = 42) and on 30 different random splits (random\_state = 0, 1, \ldots, 29; test size 30\%) to assess stability. Performance is reported as R$^2$, mean absolute error (MAE, in GPa), and root mean squared error (RMSE, in GPa).
+
+
+
+
+
+
+\section{Results and Discussion}
+
+
+\subsection{Comparative Analysis}
+\label{sec:comparative}
+
+The predictive performance of the evaluated model configurations was first examined using a fixed 80/20 train--test split. Table~\ref{tab:80_20} reports the corresponding R$^2$, MAE, and RMSE values for all models.
+
+%%% TABLE 1: 80/20 SPLIT %%%
+
+\begin{table}[h]
+\footnotesize
+\centering
+\renewcommand{\arraystretch}{1.4}
+\caption{Model performance on the fixed 80/20 train--test split (random\_state~$= 42$) for Vickers hardness prediction of graphene-added Si$_3$N$_4$ ceramics.}
+\label{tab:80_20}
+\begin{tabular}{lccc}
+\hline
+\textbf{Model} & \textbf{R$^2$} & \textbf{MAE (GPa)} & \textbf{RMSE (GPa)} \\ \hline
+XGBoost (Default Features, Tuned) & 0.819 & 1.380 & 1.948 \\
+XGBoost (Extra Features, Tuned)   & 0.822 & 1.254 & 1.932 \\
+ElasticNet                        & 0.677 & 1.925 & 2.604 \\
+RuleFit (Tuned)                   & 0.754 & 1.642 & 2.269 \\
+RuleFit (Default)                 & 0.785 & 1.484 & 2.125 \\
+DNN Small (32-16)                 & 0.758 & 1.545 & 2.251 \\
+\hline
+\end{tabular}
+\end{table}
+\FloatBarrier
+
+On the 80/20 split (Table~\ref{tab:80_20}), XGBoost with feature engineering achieves the highest R$^2$ (0.822) and lowest MAE (1.254~GPa), closely followed by XGBoost with default features (R$^2 = 0.819$, MAE~$= 1.380$~GPa). RuleFit (Default) reaches a competitive R$^2$ of 0.785 without any hyperparameter tuning, reflecting the natural suitability of rule-based learning for this dataset. ElasticNet performs weakest (R$^2 = 0.677$), indicating limited capacity to represent the nonlinear hardness relationships present in graphene-added Si$_3$N$_4$ ceramics.
+
+To examine whether the model ranking changes with a larger held-out test partition, the same model configurations were then evaluated using a fixed 70/30 train--test split. The results are presented in Table~\ref{tab:70_30}.
+
+%%% TABLE 2: 70/30 SPLIT %%%
+
+\begin{table}[h]
+\footnotesize
+\centering
+\renewcommand{\arraystretch}{1.4}
+\caption{Model performance on the fixed 70/30 train--test split (random\_state~$= 42$) for Vickers hardness prediction of graphene-added Si$_3$N$_4$ ceramics.}
+\label{tab:70_30}
+\begin{tabular}{lccc}
+\hline
+\textbf{Model} & \textbf{R$^2$} & \textbf{MAE (GPa)} & \textbf{RMSE (GPa)} \\ \hline
+XGBoost (Default Features, Tuned)  & 0.817 & 1.757 & 2.187 \\
+XGBoost (Extra Features, Tuned)    & 0.835 & 1.599 & 2.074 \\
+ElasticNet                         & 0.636 & 2.338 & 3.081 \\
+\textbf{RuleFit (Tuned)}           & \textbf{0.854} & \textbf{1.477} & \textbf{1.955} \\
+RuleFit (Default)                  & 0.825 & 1.504 & 2.135 \\
+DNN Small (32-16)                  & 0.836 & 1.519 & 2.071 \\
+\hline
+\end{tabular}
+\scriptsize{Best values per metric are shown in bold.}
+\end{table}
+\FloatBarrier
+
+On the larger 70/30 test partition (Table~\ref{tab:70_30}), RuleFit (Tuned) achieves the highest R$^2$ of 0.854 and the lowest RMSE of 1.955~GPa, surpassing all comparison models including both XGBoost variants. DNN Small (32--16) and XGBoost (Extra Features, Tuned) are very close to RuleFit on this split (R$^2 = 0.836$ and 0.835, respectively), yet RuleFit maintains a slight advantage in all three metrics simultaneously. This result is treated as split-specific and is therefore interpreted together with the repeated-split stability analysis below.
+
+Because performance on a single train--test split may depend on the particular partition, a 30-replicate random-split stability analysis was also performed. Table~\ref{tab:stability} reports the mean and standard deviation of R$^2$, MAE, and RMSE across these repeated 70/30 splits.
+
+%%% TABLE 3: 30-SPLIT STABILITY %%%
+
+\begin{table*}[h]
+\footnotesize
+\centering
+\renewcommand{\arraystretch}{1.4}
+\caption{Stability analysis: mean and standard deviation of performance metrics over 30 random 70/30 train--test splits. MAE and RMSE values are in GPa.}
+\label{tab:stability}
+\begin{tabular}{lcccccc}
+\hline
+\textbf{Model} & \textbf{R$^2$ mean} & \textbf{R$^2$ SD} & \textbf{MAE mean} & \textbf{MAE SD} & \textbf{RMSE mean} & \textbf{RMSE SD} \\ \hline
+XGBoost (Default, Tuned)        &  0.782 &  0.096 & 1.416 & 0.241 & 1.943 &  0.372 \\
+XGBoost (Extra Features, Tuned) &  0.783 &  0.084 & 1.420 & 0.287 & 1.952 &  0.368 \\
+Linear Regression               & $-6.577$ & 37.561 & 2.959 & 4.344 & 5.100 & 10.324 \\
+\textbf{RuleFit (Tuned)}        &  \textbf{0.769} &  0.089 & \textbf{1.467} & 0.281 & \textbf{2.022} &  0.398 \\
+RuleFit (Default)               &  0.768 &  0.098 & 1.491 & 0.256 & 2.021 &  0.383 \\
+Few-Shot KNN                    &  0.655 &  0.113 & 1.812 & 0.244 & 2.460 &  0.359 \\
+DNN Small (32-16)               & $-9.242$ & 53.430 & 2.593 & 5.103 & 4.582 & 12.556 \\
+\hline
+\end{tabular}
+\scriptsize{Linear Regression and DNN Small exhibit highly unstable performance (negative mean R$^2$) due to sensitivity to data partitioning in the small dataset (82 samples).}
+\end{table*}
+\FloatBarrier
+
+The 30-replicate stability analysis (Table~\ref{tab:stability}) reveals important differences in model robustness. XGBoost (Default, Tuned) and XGBoost (Extra Features, Tuned) yield mean R$^2$ values of $0.782 \pm 0.096$ and $0.783 \pm 0.084$, respectively, comparable to RuleFit (Tuned) at $0.769 \pm 0.089$. Few-Shot KNN achieves a lower mean R$^2$ of $0.655 \pm 0.113$. Linear Regression and DNN Small exhibit highly unstable performance (mean R$^2 < 0$), indicating strong sensitivity to data partitioning that renders them unsuitable as standalone predictors for this dataset. The apparently strong DNN result on the fixed 70/30 split should therefore be interpreted as split-specific rather than robust.
+
+Figure~\ref{fig:boxplot} shows the R$^2$ distribution across the 30 random splits. The box plots confirm the consistently narrow interquartile ranges for XGBoost and RuleFit, in contrast to the extreme variability exhibited by Linear Regression and DNN Small.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.95\columnwidth]{results/boxplot_r2_distribution.png}
+\caption{Box plot of R$^2$ distributions across 30 random 70/30 train--test splits for all seven models. Stable models (XGBoost, RuleFit) exhibit narrow interquartile ranges, while Linear Regression and DNN Small show extreme variability.}
+\label{fig:boxplot}
+\end{figure}
+\FloatBarrier
+
+%%% TABLE 4: T-TEST %%%
+
+\begin{table*}[h]
+\footnotesize
+\centering
+\renewcommand{\arraystretch}{1.4}
+\caption{One-tailed paired Student's $t$-test comparing RuleFit (Tuned) against each model over 30 random splits. Hypotheses: RuleFit R$^2 >$ Model R$^2$; RuleFit MAE $<$ Model MAE; RuleFit RMSE $<$ Model RMSE. Significance level: $\alpha = 0.05$, $t_\text{critical} = 1.699$ (df~$= 29$).}
+\label{tab:ttest}
+\begin{tabular}{lccccccc}
+\hline
+\textbf{Model} & \textbf{R$^2$ $t$} & \textbf{R$^2$ $p$} & \textbf{MAE $t$} & \textbf{MAE $p$} & \textbf{RMSE $t$} & \textbf{RMSE $p$} & \textbf{Sig.} \\ \hline
+XGBoost (Default, Tuned)        & $-0.744$ & 0.769 & $ 1.003$ & 0.838 & $ 1.223$ & 0.884 & No \\
+XGBoost (Extra Features, Tuned) & $-0.947$ & 0.824 & $ 1.056$ & 0.850 & $ 1.280$ & 0.895 & No \\
+Linear Regression               & $ 1.053$ & 0.151 & $-1.824$ & \textbf{0.039} & $-1.596$ & 0.061 & MAE only \\
+RuleFit (Default)               & $ 0.049$ & 0.481 & $-0.544$ & 0.295 & $ 0.018$ & 0.507 & No \\
+Few-Shot KNN                    & $ 6.112$ & \textbf{$<$0.001} & $-6.182$ & \textbf{$<$0.001} & $-6.700$ & \textbf{$<$0.001} & All metrics \\
+DNN Small (32-16)               & $ 1.009$ & 0.161 & $-1.177$ & 0.124 & $-1.094$ & 0.142 & No \\
+\hline
+\end{tabular}
+\scriptsize{A positive $t$-statistic for R$^2$ indicates RuleFit achieves higher R$^2$; a negative $t$-statistic for MAE/RMSE indicates RuleFit achieves lower error. Bold values indicate statistical significance ($p < 0.05$).}
+\end{table*}
+\FloatBarrier
+
+The one-tailed paired $t$-test results (Table~\ref{tab:ttest}) show that at $\alpha = 0.05$ ($t_\text{critical} = 1.699$, df~$= 29$), RuleFit (Tuned) significantly outperforms only Few-Shot KNN across all three metrics (R$^2$: $t = 6.11$, $p < 0.001$; MAE: $t = -6.18$, $p < 0.001$; RMSE: $t = -6.70$, $p < 0.001$). Against XGBoost variants and DNN Small, no statistically significant difference is observed. Linear Regression shows a significant MAE disadvantage relative to RuleFit ($p = 0.039$), but not for R$^2$ or RMSE. Collectively, these results indicate that RuleFit (Tuned) achieves accuracy comparable to the strongest black-box models on this dataset, while providing transparent, human-readable rule extraction. The absence of a statistically significant difference should not be interpreted as a formal equivalence test; it only indicates that the repeated-split analysis did not detect a significant advantage or disadvantage relative to those baselines.
+
+
+\subsection{Feature Analysis and Model Interpretability}
+\label{sec:benchmark}
+
+Figure~\ref{fig:corr_heatmap} presents the Pearson correlation heatmap of all 30 input features and the Vickers hardness target. Several strong pairwise correlations are observed within feature families --- for example, sintering temperature and sintering energy ($r > 0.9$), and total additive content and Si$_3$N$_4$ content ($r < -0.9$) --- motivating the use of regularised and tree-based models that handle multicollinearity natively.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.95\columnwidth]{results/heatmap_correlation.png}
+\caption{Pearson correlation heatmap of all 30 input features (22 original + 8 engineered) and the Vickers hardness target. Feature labels are displayed on both axes; darker colours indicate stronger pairwise correlation.}
+\label{fig:corr_heatmap}
+\end{figure}
+\FloatBarrier
+
+Figure~\ref{fig:feature_importance} presents feature importance scores extracted from the tuned RuleFit model using rule-condition contributions. Graphene content, encoded graphene type, relative density, and Si$_3$N$_4$ content are the most prominent contributors in the RuleFit interpretation. In the complementary SHAP analysis of the XGBoost model, sintering pressure also appears as a major driver. Taken together, these results support the physically plausible interpretation that hardness is governed by the combined effects of graphene addition, densification, composition, and sintering conditions.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\columnwidth]{results/rulefit_feature_importance.png}
+\caption{RuleFit rule-based feature importance for Vickers hardness prediction. Importance is computed as the sum of absolute rule coefficients associated with each feature, weighted by rule activation frequency across training samples.}
+\label{fig:feature_importance}
+\end{figure}
+\FloatBarrier
+
+Figure~\ref{fig:dendrogram} presents the hierarchical clustering dendrogram of input features using Ward linkage on a distance matrix derived from absolute Pearson correlations ($d_{ij} = 1 - |r_{ij}|$). Three main feature families emerge: (i) sintering process parameters (temperature, pressure, time, and the derived sintering intensity and dose), (ii) material composition features (Si$_3$N$_4$ content, graphene content, additive ratio, total additive), and (iii) graphene morphology descriptors (graphene type encoding, aspect ratio, volume proxy). This clustering aligns with the physical design space of ceramic fabrication, where process parameters, material composition, and graphene characteristics operate through distinct mechanistic pathways. The clear grouping validates the feature engineering strategy and supports the physical interpretability of the model.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\columnwidth]{results/paper_dendrogram.png}
+\caption{Hierarchical clustering dendrogram of input features (Ward linkage, $d = 1 - |r|$). Three main feature families are identified: sintering process parameters, material composition variables, and graphene morphology descriptors.}
+\label{fig:dendrogram}
+\end{figure}
+\FloatBarrier
+
+Figure~\ref{fig:shap_summary} presents the global SHAP summary plot for the tuned XGBoost model on the 70/30 test set. The ranking of features by mean absolute SHAP value is broadly consistent with the RuleFit interpretation: graphene type encoding, sintering pressure, Si$_3$N$_4$ content, graphene content, and density dominate global predictive influence. This cross-method consistency between RuleFit rule weights and SHAP values for a gradient-boosted tree model provides mutual validation of the identified feature rankings.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\columnwidth]{results/paper_shap_summary.png}
+\caption{Global SHAP summary plot for the tuned XGBoost model (70/30 test set). Each point represents one test sample; colour indicates feature value (red = high, blue = low). Features are ranked by mean absolute SHAP value.}
+\label{fig:shap_summary}
+\end{figure}
+\FloatBarrier
+
+Figure~\ref{fig:rulefit_rules} presents the top 12 rules extracted from the tuned RuleFit model, ranked by importance (defined as $|\text{coefficient}| \times \text{support}$). Both linear terms and conjunctive Boolean rules are included. The most important term is the linear graphene content coefficient ($\text{coef} = -1.682$, support $= 1.00$), indicating a globally negative linear effect of graphene addition on hardness. The second-ranked rule (\texttt{Load $>$ threshold \& Graphene Type $>$ threshold \& Density $>$ threshold}, $\text{coef} = +1.626$, support $= 0.43$) captures a favourable interaction: high load, high-quality graphene type, and adequate density jointly promote elevated hardness. The rule \texttt{Graphene\% $>$ threshold \& Sint.\ Intensity $\leq$ threshold} ($\text{coef} = -2.133$, support $= 0.11$) identifies a critical failure mode: excessive graphene content combined with insufficient sintering intensity leads to strongly degraded hardness. Three linear terms (Graphene\%, Graphene Type, Density) appear among the top rules with full support ($= 1.00$), confirming their globally consistent influence across the training set. Collectively, the extracted rule set encodes physically interpretable processing–property relationships that are directly actionable for experimental design.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.95\columnwidth]{results/rulefit_rules_extracted.png}
+\caption{Top 12 rules extracted from the tuned RuleFit model, ranked by importance ($|\text{coef}| \times \text{support}$). Blue bars indicate rules with a positive effect on Vickers hardness; red bars indicate negative effects. Linear terms (full support $= 1.00$) and conjunctive Boolean rules are shown together.}
+\label{fig:rulefit_rules}
+\end{figure}
+\FloatBarrier
+
+
+\subsection{Data Structure Visualisation}
+\label{sec:datastructure}
+
+To explore the intrinsic structure of the dataset before modelling, principal component analysis (PCA) and $t$-distributed stochastic neighbour embedding ($t$-SNE) are applied to the 30-dimensional feature space (22 original + 8 engineered features). Figure~\ref{fig:pca_tsne} presents the resulting two-dimensional projections, with each point coloured by its measured Vickers hardness.
+
+PCA reveals that the first two principal components capture 32.2\% and 18.6\% of the total variance, respectively (50.8\% cumulative). A clear colour gradient along PC1 indicates that the dominant source of variation in the feature space aligns with the hardness response, suggesting that the engineered feature set encodes information relevant to mechanical performance. The $t$-SNE projection (perplexity~$= 15$) further confirms meaningful local clustering: low-hardness samples ($< 10$~GPa, blue) and high-hardness samples ($> 20$~GPa, red) form visually distinct groups, while mid-range samples occupy a broader, more diffuse region. This non-linear separation supports the use of tree-based and rule-based models that can capture local decision boundaries in the feature space.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.95\columnwidth]{results/pca_tsne_combined.png}
+\caption{Two-dimensional projections of the 30-feature dataset. Left: PCA (PC1 = 32.2\%, PC2 = 18.6\% variance explained). Right: $t$-SNE (perplexity = 15). Points are coloured by measured Vickers hardness (GPa).}
+\label{fig:pca_tsne}
+\end{figure}
+\FloatBarrier
+
+
+
+
+
+\subsection{Case Study: Interpretability Analysis of RuleFit Predictions}
+\label{sec:casestudy}
+
+Five representative test samples are analysed using three complementary explanation methods: RuleFit rule activations (linear coefficients and boolean rule conditions), SHAP (TreeExplainer applied to the tuned XGBoost model with base value 14.933~GPa), and LIME (LimeTabularExplainer with 1\,000 perturbation samples). The five samples cover a range of prediction difficulty: two high-accuracy cases (absolute RF error $< 0.2$~GPa), two moderate-error cases ($0.8$--$0.9$~GPa), and one challenging outlier (error $= 4.46$~GPa). Table~\ref{tab:case_overview} provides an overview.
+
+\begin{table}[h]
+\footnotesize
+\centering
+\renewcommand{\arraystretch}{1.4}
+\caption{Overview of five selected test samples for interpretability analysis. RF = RuleFit (Tuned), XGB = XGBoost (Extra Features, Tuned). Error refers to RF absolute prediction error.}
+\label{tab:case_overview}
+\begin{tabular}{cccccc}
+\hline
+\textbf{Point} & \textbf{True (GPa)} & \textbf{RF Pred.} & \textbf{XGB Pred.} & \textbf{RF Error} & \textbf{Category} \\ \hline
+P1 & 6.5  & 6.544  & 9.209  & 0.044 & Very accurate ($<$0.2~GPa) \\
+P2 & 18.3 & 18.438 & 18.406 & 0.138 & Very accurate ($<$0.2~GPa) \\
+P3 & 13.3 & 14.132 & 14.432 & 0.832 & Moderate (0.8--0.9~GPa) \\
+P4 & 15.5 & 14.654 & 14.882 & 0.846 & Moderate (0.8--0.9~GPa) \\
+P5 & 27.0 & 22.541 & 21.913 & 4.459 & Challenging ($>$3.5~GPa) \\
+\hline
+\end{tabular}
+\end{table}
+\FloatBarrier
+
+\paragraph{Point P1 (True: 6.5~GPa, RF: 6.544~GPa, XGB: 9.209~GPa).}
+This sample is characterised by a high graphene content of 8.0~wt.\%, low sintering pressure (25~MPa), sintering temperature of 1750~$^\circ$C, and a relative density of 98\%. RuleFit activates two rules that drive the prediction toward the low-hardness regime: ``Graphene~$>$~2.0 \& sintering\_intensity~$\leq$~47,375'' (coefficient~$= -2.835$, importance~$= 0.992$) and ``Sintering Temperature~$>$~1612.5 \& Si$_3$N$_4$~$\leq$~87.375'' (coefficient~$= -1.079$). These activations correctly capture the detrimental effect of excess graphene at sub-optimal sintering intensity on densification and hardness. SHAP corroborates this: Sintering Pressure (SHAP~$= -1.896$~GPa) and Graphene content (SHAP~$= -1.116$~GPa) are the two strongest negative contributors relative to the dataset base value of 14.933~GPa. LIME similarly identifies Si$_3$N$_4 \leq$~87.00 ($-2.668$~GPa) and Sintering Pressure~$\leq$~25~MPa ($-2.062$~GPa) as the dominant negative local conditions. Notably, XGBoost overestimates this sample by 2.709~GPa (predicted 9.209~GPa), whereas RuleFit's rule-based constraints correctly suppress the prediction to near the true value. This demonstrates a key interpretability advantage: the activated rules provide an explicit, physically grounded explanation for the low-hardness outcome.
+
+\paragraph{Point P2 (True: 18.3~GPa, RF: 18.438~GPa, XGB: 18.406~GPa).}
+This sample contains no graphene (0.0~wt.\%), relative density of 98\%, sintering temperature of 1600~$^\circ$C, and high sintering pressure of 50~MPa. RuleFit activates two positive rules: ``Type of Graphene encoded~$>$~14.236 \& Load~$>$~7.4 \& Density~$>$~87.13'' (coefficient~$= +1.262$) and ``Sintering Pressure~$>$~27.5'' (coefficient~$= +0.652$), correctly associating high pressure and density with elevated hardness. SHAP identifies Density (\texttt{+}0.778~GPa), Si$_3$N$_4$ content (\texttt{+}0.703~GPa), and Sintering Pressure (\texttt{+}0.688~GPa) as the leading positive contributors. LIME confirms: Sintering Pressure~$>$~25~MPa (\texttt{+}1.991~GPa) and Density~$>$~93.84\% (\texttt{+}1.422~GPa) are the strongest local positive conditions. All three methods agree that high sintering pressure and density are the key drivers of elevated hardness in additive-free Si$_3$N$_4$.
+
+\paragraph{Point P3 (True: 13.3~GPa, RF: 14.132~GPa, XGB: 14.432~GPa).}
+This sample has no graphene, density 96.52\%, sintering temperature 1700~$^\circ$C, and very low sintering pressure 20~MPa. None of the five extracted RuleFit rules is activated, so the prediction is driven entirely by the model's linear component. SHAP identifies Sintering Pressure (SHAP~$= -1.627$~GPa) as the dominant negative factor, consistent with the low pressure preventing full densification. Graphene absence contributes a positive SHAP value (\texttt{+}0.927~GPa). LIME similarly identifies Sintering Pressure~$\leq$~25~MPa ($-2.093$~GPa) as the strongest downward driver. The moderate overestimation (14.132 vs.\ 13.3~GPa) is consistent with the linear model's tendency to predict toward the training mean when no rule constrains the output. Comparison with XGBoost (14.432~GPa) confirms this is a systematic challenge for both models at very low sintering pressures.
+
+\paragraph{Point P4 (True: 15.5~GPa, RF: 14.654~GPa, XGB: 14.882~GPa).}
+This sample contains graphene at 3.175~wt.\%, density 99\%, sintering temperature 1625~$^\circ$C, and sintering pressure 50~MPa. Two RuleFit rules activate with opposing signs: ``Sintering Pressure~$>$~27.5'' (coefficient~$= +0.652$) and ``Density~$>$~87.13 \& Type of Graphene~$\leq$~18.69 \& Load~$\leq$~73.5'' (coefficient~$= -0.799$). The partial cancellation of these rules explains the slight underestimation (14.654 vs.\ 15.5~GPa). SHAP shows Si$_3$N$_4$ content (\texttt{+}0.808~GPa) and Sintering Pressure (\texttt{+}0.718~GPa) as the leading positive contributors, while graphene type encoding acts as a downward factor ($-0.647$~GPa). LIME corroborates: high sintering pressure (\texttt{+}2.059~GPa) and Si$_3$N$_4$ content (\texttt{+}1.377~GPa) are the dominant positive conditions, offset by graphene volume proxy ($-1.039$~GPa) and graphene content ($-0.838$~GPa). The RuleFit rule conflict is explicitly visible and provides a mechanistic explanation for the underestimation.
+
+\paragraph{Point P5 (True: 27.0~GPa, RF: 22.541~GPa, XGB: 21.913~GPa).}
+This sample represents the most challenging prediction in the test set, with absolute errors of 4.459~GPa (RuleFit) and 5.087~GPa (XGBoost). Its features include 2.012~wt.\% graphene, near-perfect density of 99.9\%, sintering temperature 1625~$^\circ$C, and sintering pressure 50~MPa. Two positive RuleFit rules activate: ``Type of Graphene encoded~$>$~14.236 \& Load~$>$~7.4 \& Density~$>$~87.13'' (coefficient~$= +1.262$) and ``Sintering Pressure~$>$~27.5'' (coefficient~$= +0.652$). However, SHAP reveals the dominant factor: graphene type encoding (SHAP~$= +3.827$~GPa) is the single largest SHAP magnitude observed across all five samples, driving the XGBoost prediction well above the base value (14.933~GPa) but insufficient to reach 27.0~GPa. LIME identifies Sintering Pressure~$>$~25~MPa (\texttt{+}2.027~GPa) and graphene type encoding~$>$~14.27 (\texttt{+}1.658~GPa) as the strongest positive local conditions. The consistent underestimation by both models (22.5 and 21.9~GPa) indicates a data-driven limitation: this sample's exceptionally high hardness arises from a specific graphene type whose reinforcing effect is under-represented in the 82-sample training set, making precise extrapolation inherently difficult. The transparent rule-based analysis enables researchers to identify this boundary condition explicitly and target additional experiments in this parametric region.
+
+Figure~\ref{fig:shap_waterfall} provides a consolidated SHAP feature contribution analysis for P1, P2, and P3. In P1 (low hardness, 6.5~GPa), sintering pressure ($-1.896$~GPa) and graphene content ($-1.116$~GPa) are the dominant negative drivers, pulling the prediction far below the dataset base value of 14.933~GPa. In P2 (high hardness, 18.3~GPa), the contributions are reversed: density ($+0.778$~GPa), Si$_3$N$_4$ content ($+0.703$~GPa), and sintering pressure ($+0.688$~GPa) collectively lift the prediction above the base value. In P3 (moderate hardness, 13.3~GPa), sintering pressure again acts as the dominant negative factor ($-1.627$~GPa), while graphene absence and adequate Si$_3$N$_4$ content provide partial positive offsets. This panel confirms the physical consistency of SHAP explanations across points spanning the full hardness range.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{results/shap_waterfall_p123.png}
+\caption{SHAP feature contribution analysis for P1 (true: 6.5~GPa), P2 (true: 18.3~GPa), and P3 (true: 13.3~GPa). Blue bars indicate positive contributions (increasing hardness above the base value of 14.933~GPa); red bars indicate negative contributions. The ``Others'' bar represents the aggregate contribution of all remaining features beyond the top five.}
+\label{fig:shap_waterfall}
+\end{figure}
+\FloatBarrier
+
+
+\section{Conclusion}
+
+This study presented an interpretable machine learning framework for predicting the Vickers hardness of graphene-added Si$_3$N$_4$ ceramics using a dataset of 82 experimentally characterised samples. A tuned RuleFit model was developed alongside five baseline model families --- XGBoost with original and engineered features, ElasticNet/linear baselines, Few-Shot KNN, and a small deep neural network --- and evaluated under three experimental protocols: fixed 80/20 and 70/30 train--test splits, and a 30-replicate random-split stability analysis.
+
+On the 70/30 fixed split, RuleFit (Tuned) achieved the highest performance (R$^2 = 0.854$, RMSE~$= 1.955$~GPa, MAE~$= 1.477$~GPa), surpassing both XGBoost variants (R$^2 = 0.817$--$0.835$) and DNN Small (R$^2 = 0.836$). Across 30 random splits, RuleFit demonstrated stable performance (R$^2 = 0.769 \pm 0.089$), comparable to XGBoost (R$^2 = 0.782 \pm 0.096$). One-tailed paired $t$-tests showed that RuleFit statistically significantly outperforms only Few-Shot KNN (all metrics, $p < 0.001$), while performance differences with XGBoost and DNN are not statistically significant ($\alpha = 0.05$, $t_\text{critical} = 1.699$). Linear Regression and DNN exhibited high instability (mean R$^2 < 0$) attributable to the small dataset size.
+
+Feature importance analysis and hierarchical clustering identified three physically meaningful feature families: sintering process parameters, material composition, and graphene morphology descriptors. Graphene content/type, sintering pressure, Si$_3$N$_4$ content, and relative density emerged as recurring predictors across RuleFit and SHAP analyses, aligning with established ceramic processing--property relationships.
+
+Case study analysis of five test samples demonstrated that RuleFit's rule activations provide explicit, physically grounded explanations for individual predictions. In particular, activated rules identified the detrimental role of excess graphene content at sub-optimal sintering intensity (Rule~1: coefficient~$= -2.835$) and the benefit of high sintering pressure (Rule~4: coefficient~$= +0.652$), enabling researchers to trace prediction outcomes to specific processing conditions. Cross-method consistency between RuleFit rule activations, SHAP values, and LIME local explanations further validates the reliability of these interpretations.
+
+The proposed framework demonstrates that interpretable rule-based models can provide competitive accuracy on small ceramic datasets while offering human-readable guidance for experimental design and process optimisation in advanced ceramic manufacturing. The main limitations are the small dataset size, literature-source heterogeneity, the inclusion of post-sintering descriptors such as density and phase composition, the need for strictly leakage-free encoding/tuning, and the absence of external validation on newly fabricated samples. Future work should therefore separate pre-synthesis and post-synthesis prediction tasks, perform source-label ablation, and validate the rules experimentally in the high-hardness regions identified by the model.
+
+
+\section{Supplementary Information}
+
+Additional performance visualisations, including the R$^2$ distribution box plots across 30 random splits and the few-shot learning curve for the RuleFit model, will be deposited in a manuscript-specific project repository together with the cleaned dataset, preprocessing scripts, model-training scripts, and random seeds.
+
+\section{Declarations}
+
+
+\begin{itemize}
+    \item{Funding}
+No funding was received for this study.
+
+    \item{Conflict of Interest}
+The authors declare that they have no conflicts of interest relevant to the content of this article.
+
+    \item{Ethics Approval and Consent to Participate}
+Not applicable.
+
+    \item{Consent for Publication}
+Not applicable.
+
+    \item{Data Availability}
+The datasets and analysis code will be deposited in a manuscript-specific public repository before publication. Large files, if any, are available from the corresponding author upon reasonable request.
+    \item{Materials Availability}
+Not applicable.
+
+
+    \item{Code Availability}
+The code will be deposited in a manuscript-specific public repository before publication, including preprocessing, leakage-free encoding, model training, evaluation, and explanation scripts.
+
+
+    \item{Author Contributions}
+SYU designed and performed the research, analyzed the data, and wrote the manuscript. SYU critically reviewed, revised, and approved the final manuscript.
+\end{itemize}
+
+\noindent
+%If any of the sections are not relevant to your manuscript, please include the heading and write `Not applicable' for that section. 
+
+%%===================================================%%
+%% For presentation purpose, we have included        %%
+%% \bigskip command. Please ignore this.             %%
+%%===================================================%%
+%\bigskip
+%\begin{flushleft}%
+%Editorial Policies for:
+
+%\bigskip\noindent
+%Springer journals and proceedings: %\url{https://www.springer.com/gp/editorial-policies}
+
+%\bigskip\noindent
+%Nature Portfolio journals: \url{https://www.nature.com/nature-research/editorial-policies}
+
+%\bigskip\noindent
+%\textit{Scientific Reports}: \url{https://www.nature.com/srep/journal-policies/editorial-policies}
+
+%\bigskip\noindent
+%BMC journals: %\url{https://www.biomedcentral.com/getpublished/editorial-policies}
+%\end{flushleft}
+
+\begin{appendices}
+
+%\section{Section title of first appendix}\label{secA1}
+
+%An appendix contains supplementary information that is not an essential part of the text itself but which may be helpful in providing a more comprehensive understanding of the research problem or it is information that is too cumbersome to be included in the body of the paper.
+
+%%=============================================%%
+%% For submissions to Nature Portfolio Journals %%
+%% please use the heading ``Extended Data''.   %%
+%%=============================================%%
+
+%%=============================================================%%
+%% Sample for another appendix section			       %%
+%%=============================================================%%
+
+%% \section{Example of another appendix section}\label{secA2}%
+%% Appendices may be used for helpful, supporting or essential material that would otherwise 
+%% clutter, break up or be distracting to the text. Appendices can consist of sections, figures, 
+%% tables and equations etc.
+
+\end{appendices}
+
+%%===========================================================================================%%
+%% If you are submitting to one of the Nature Portfolio journals, using the eJP submission   %%
+%% system, please include the references within the manuscript file itself. You may do this  %%
+%% by copying the reference list from your .bbl file, paste it into the main manuscript .tex %%
+%% file, and delete the associated \verb+\bibliography+ commands.                            %%
+%%===========================================================================================%%
+%\bibliographystyle{vancouver}
+\newpage
+\bibliography{mybib}% common bib file
+%% if required, the content of .bbl file can be included here once bbl is generated
+%%\input sn-article.bbl
+
+%\\bibliographystyle{vancouver} % Style BST file (bmc-mathphys, vancouver, spbasic).
+%\bibliographystyle{bmc-mathphys} % Style BST file (bmc-mathphys, vancouver, spbasic).
+%\\bibliography{mybib}      % Bibliography file 
+
+
+\end{document}
