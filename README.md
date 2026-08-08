@@ -30,12 +30,12 @@ The central contribution is a **tuned RuleFit model** that matches the predictiv
 | ElasticNet | 0.636 | 2.338 | 3.081 |
 
 > RuleFit (Tuned) gives the highest R² on the 70/30 split and stays stable at R² = 0.769 ± 0.089 across 30 random splits.
-> Note: the RuleFit configuration was selected on the 70/30 held-out partition, so the 0.854 value is a
-> selection-conditioned upper reference point. A leakage-free re-analysis
+> Note: a single fixed hyperparameter configuration is used throughout. A leakage-free re-analysis
 > ([`results/revision2/tables/nested_cv_30splits.csv`](results/revision2/tables/nested_cv_30splits.csv))
-> puts the associated optimism at 0.028 in R² on that split, and finds no measurable optimism across the
-> 30 repeated partitions (paired ΔR² = −0.009, 95% CI [−0.048, +0.029]). The repeated-split numbers are
-> the basis for the comparative claims.
+> re-selects the grid inside each training partition only, and finds the two procedures statistically
+> indistinguishable across the 30 repeated partitions (paired ΔR² = −0.009, 95% CI [−0.048, +0.029],
+> p = 0.62); on the fixed 70/30 split they differ by 0.028 in R². The repeated-split numbers are the
+> basis for the comparative claims.
 
 ---
 
@@ -222,7 +222,7 @@ pip install -r requirements-revision2.txt
 cd scripts/revision2
 python fig01_boxplot.py        # and fig02, fig03_06, fig04, fig05_08, fig07
 python gen_table04.py          # rebuilds Table 4 from the analysis output
-python nested_cv_check.py      # selection-free re-analysis, ~15 min
+python nested_cv_check.py      # leakage-free re-analysis, ~15 min
 ```
 
 Paths are resolved automatically from the repository layout by `scripts/revision2/paths.py`;

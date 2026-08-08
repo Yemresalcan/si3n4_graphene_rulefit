@@ -8,9 +8,9 @@ protocol would itself introduce a bias against the original method.
 What this adds is an independent check: the RuleFit grid is re-selected inside
 each training partition only, using an inner 5-fold cross-validation, and the
 held-out test partition of that split is touched exactly once, for the final
-score. Running it on all 30 repeated partitions gives a selection-bias-free
-counterpart to Table 3, so the reader can see how much of the reported
-performance depends on the selection step.
+score. Running it on all 30 repeated partitions gives a strictly leakage-free
+counterpart to Table 3, so the reader can see how far the reported performance
+depends on the fixed hyperparameter configuration.
 """
 import json
 import os
