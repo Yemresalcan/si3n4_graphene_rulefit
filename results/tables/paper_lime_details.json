@@ -1,0 +1,147 @@
+[
+  {
+    "point": 1,
+    "test_idx": 24,
+    "true_GPa": 6.5,
+    "xgb_pred_GPa": 9.209,
+    "rf_pred_GPa": 6.514,
+    "top5_lime": [
+      {
+        "condition": "Si3N4 (wt%) <= 87.00",
+        "contribution": -2.6676
+      },
+      {
+        "condition": "Sintering Pressure (MPa) <= 25.00",
+        "contribution": -2.0618
+      },
+      {
+        "condition": "93.84 < Density (%) <= 98.00",
+        "contribution": 1.2761
+      },
+      {
+        "condition": "Graphene (wt. %) > 3.00",
+        "contribution": -0.9497
+      },
+      {
+        "condition": "Load (N) <= 9.80",
+        "contribution": -0.5705
+      }
+    ]
+  },
+  {
+    "point": 2,
+    "test_idx": 9,
+    "true_GPa": 18.3,
+    "xgb_pred_GPa": 18.406,
+    "rf_pred_GPa": 18.489,
+    "top5_lime": [
+      {
+        "condition": "25.00 < Sintering Pressure (MPa) <= 50.00",
+        "contribution": 1.9906
+      },
+      {
+        "condition": "93.84 < Density (%) <= 98.00",
+        "contribution": 1.4218
+      },
+      {
+        "condition": "89.00 < Si3N4 (wt%) <= 90.00",
+        "contribution": 1.3567
+      },
+      {
+        "condition": "Graphene (wt. %) <= 0.69",
+        "contribution": 0.6417
+      },
+      {
+        "condition": "14.20 < Type of Graphene_encoded <= 14.27",
+        "contribution": -0.5681
+      }
+    ]
+  },
+  {
+    "point": 3,
+    "test_idx": 7,
+    "true_GPa": 15.4,
+    "xgb_pred_GPa": 14.485,
+    "rf_pred_GPa": 14.606,
+    "top5_lime": [
+      {
+        "condition": "Sintering Pressure (MPa) <= 25.00",
+        "contribution": -2.0881
+      },
+      {
+        "condition": "89.00 < Si3N4 (wt%) <= 90.00",
+        "contribution": 1.4358
+      },
+      {
+        "condition": "Density (%) > 99.00",
+        "contribution": 1.0356
+      },
+      {
+        "condition": "Graphene (wt. %) <= 0.69",
+        "contribution": 0.7998
+      },
+      {
+        "condition": "Load (N) <= 9.80",
+        "contribution": -0.6905
+      }
+    ]
+  },
+  {
+    "point": 4,
+    "test_idx": 5,
+    "true_GPa": 12.5,
+    "xgb_pred_GPa": 13.946,
+    "rf_pred_GPa": 13.326,
+    "top5_lime": [
+      {
+        "condition": "Sintering Pressure (MPa) <= 25.00",
+        "contribution": -2.112
+      },
+      {
+        "condition": "Si3N4 (wt%) > 90.00",
+        "contribution": 1.2165
+      },
+      {
+        "condition": "Density (%) > 99.00",
+        "contribution": 0.9768
+      },
+      {
+        "condition": "Load (N) <= 9.80",
+        "contribution": -0.8289
+      },
+      {
+        "condition": "Graphene (wt. %) <= 0.69",
+        "contribution": 0.6955
+      }
+    ]
+  },
+  {
+    "point": 5,
+    "test_idx": 20,
+    "true_GPa": 27.0,
+    "xgb_pred_GPa": 21.913,
+    "rf_pred_GPa": 22.557,
+    "top5_lime": [
+      {
+        "condition": "25.00 < Sintering Pressure (MPa) <= 50.00",
+        "contribution": 2.0268
+      },
+      {
+        "condition": "Type of Graphene_encoded > 14.27",
+        "contribution": 1.6582
+      },
+      {
+        "condition": "Si3N4 (wt%) > 90.00",
+        "contribution": 1.1874
+      },
+      {
+        "condition": "Density (%) > 99.00",
+        "contribution": 1.1212
+      },
+      {
+        "condition": "Load (N) <= 9.80",
+        "contribution": -0.6825
+      }
+    ]
+  }
+]

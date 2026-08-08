@@ -1,0 +1,26 @@
+{
+  "nested_R2_mean": 0.7564974319974648,
+  "nested_R2_sd": 0.1138179226199116,
+  "nested_MAE_mean": 1.5060590646155672,
+  "nested_MAE_sd": 0.2053645355322478,
+  "nested_RMSE_mean": 2.0593402956209146,
+  "nested_RMSE_sd": 0.35927179876610565,
+  "published_cfg_R2_mean": 0.7658665811582364,
+  "published_cfg_R2_sd": 0.07872668655977748,
+  "published_cfg_MAE_mean": 1.4659200871649527,
+  "times_published_cfg_selected": 0,
+  "fixed_split_nested": {
+    "R2": 0.8252347365562844,
+    "MAE": 1.5062370940856593,
+    "RMSE": 2.135228330419778
+  },
+  "fixed_split_published_cfg": {
+    "R2": 0.8530659723155396,
+    "MAE": 1.456035938180464,
+    "RMSE": 1.9578434244100262
+  },
+  "fixed_split_selected_cfg": {
+    "tree_size": 4,
+    "max_rules": 100
+  }
+}

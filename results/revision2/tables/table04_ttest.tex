@@ -1,0 +1,38 @@
+\begin{table}[h]
+\footnotesize
+\centering
+\renewcommand{\arraystretch}{1.15}
+\setlength{\tabcolsep}{4pt}
+\caption{PLACEHOLDER}
+\label{tab:ttest}
+\begin{tabular}{@{}lrcrrr@{}}
+\hline
+\textbf{Comparator} & \textbf{Mean diff.} & \textbf{95\% CI} & \textbf{$d_z$} & \textbf{$p$} & \textbf{$p_{\mathrm{Bonf}}$} \\ \hline
+\multicolumn{6}{@{}l}{\textit{$R^2$  (positive difference favours RuleFit)}} \\[1pt]
+XGBoost (Default Features, Tuned)$^{*}$ & $-$0.013 & [$-$0.048, 0.022] & $-$0.14 & 0.769 & 1.000 \\
+XGBoost (Extra Features, Tuned) & $-$0.013 & [$-$0.042, 0.016] & $-$0.17 & 0.824 & 1.000 \\
+Linear Regression & +7.346 & [$-$6.924, 21.616] & +0.19 & 0.151 & 1.000 \\
+RuleFit (Default) & +0.001 & [$-$0.033, 0.035] & +0.01 & 0.481 & 1.000 \\
+\textbf{Few-Shot KNN} & \textbf{+0.114} & \textbf{[0.076, 0.152]} & \textbf{+1.12} & \textbf{$<$0.001} & \textbf{$<$0.001} \\
+DNN Small (32--16) & +10.011 & [$-$10.285, 30.308] & +0.18 & 0.161 & 1.000 \\
+\noalign{\vskip 3pt}
+\multicolumn{6}{@{}l}{\textit{MAE, GPa  (negative difference favours RuleFit)}} \\[1pt]
+XGBoost (Default Features, Tuned)$^{*}$ & +0.051 & [$-$0.053, 0.155] & +0.18 & 0.838 & 1.000 \\
+XGBoost (Extra Features, Tuned) & +0.047 & [$-$0.044, 0.138] & +0.19 & 0.850 & 1.000 \\
+Linear Regression & $-$1.492 & [$-$3.165, 0.181] & $-$0.33 & 0.039 & 0.707 \\
+RuleFit (Default) & $-$0.024 & [$-$0.115, 0.066] & $-$0.10 & 0.295 & 1.000 \\
+\textbf{Few-Shot KNN} & \textbf{$-$0.344} & \textbf{[$-$0.458, $-$0.230]} & \textbf{$-$1.13} & \textbf{$<$0.001} & \textbf{$<$0.001} \\
+DNN Small (32--16) & $-$1.126 & [$-$3.083, 0.831] & $-$0.21 & 0.124 & 1.000 \\
+\noalign{\vskip 3pt}
+\multicolumn{6}{@{}l}{\textit{RMSE, GPa  (negative difference favours RuleFit)}} \\[1pt]
+XGBoost (Default Features, Tuned)$^{*}$ & +0.078 & [$-$0.053, 0.209] & +0.22 & 0.884 & 1.000 \\
+XGBoost (Extra Features, Tuned) & +0.070 & [$-$0.042, 0.181] & +0.23 & 0.895 & 1.000 \\
+Linear Regression & $-$3.079 & [$-$7.024, 0.866] & $-$0.29 & 0.061 & 1.000 \\
+RuleFit (Default) & +0.001 & [$-$0.110, 0.112] & +0.00 & 0.507 & 1.000 \\
+\textbf{Few-Shot KNN} & \textbf{$-$0.438} & \textbf{[$-$0.572, $-$0.305]} & \textbf{$-$1.22} & \textbf{$<$0.001} & \textbf{$<$0.001} \\
+DNN Small (32--16) & $-$2.561 & [$-$7.350, 2.228] & $-$0.20 & 0.142 & 1.000 \\
+\hline
+\end{tabular}
+\vspace{1mm}
+\scriptsize{One-tailed paired $t$-tests of RuleFit (Tuned) against each comparator over the same 30 random 70/30 partitions ($n=30$ paired observations per test). Mean diff.\ is the paired mean of RuleFit\,$-$\,comparator. $p_{\mathrm{Bonf}}$ applies Bonferroni correction across all 18 tests. Bold rows remain significant after correction. $^{*}$Reimplemented XGBoost baseline following the published state-of-the-art strategy of Qadir et al.~\cite{qadir2024predicting}.}
+\end{table}

@@ -29,7 +29,13 @@ The central contribution is a **tuned RuleFit model** that matches the predictiv
 | RuleFit (Default) | 0.825 | 1.504 | 2.135 |
 | ElasticNet | 0.636 | 2.338 | 3.081 |
 
-> RuleFit (Tuned) achieves the best performance on the 70/30 split and demonstrates stable R² = 0.769 ± 0.089 across 30 random splits.
+> RuleFit (Tuned) gives the highest R² on the 70/30 split and stays stable at R² = 0.769 ± 0.089 across 30 random splits.
+> Note: the RuleFit configuration was selected on the 70/30 held-out partition, so the 0.854 value is a
+> selection-conditioned upper reference point. A leakage-free re-analysis
+> ([`results/revision2/tables/nested_cv_30splits.csv`](results/revision2/tables/nested_cv_30splits.csv))
+> puts the associated optimism at 0.028 in R² on that split, and finds no measurable optimism across the
+> 30 repeated partitions (paired ΔR² = −0.009, 95% CI [−0.048, +0.029]). The repeated-split numbers are
+> the basis for the comparative claims.
 
 ---
 
@@ -121,7 +127,11 @@ Interpretability Analysis
   <img src="results/figures/pca_tsne_combined.png" width="800"/>
 </p>
 
-*PCA (PC1=32.2%, PC2=18.6%) and t-SNE projections coloured by Vickers hardness. Low-hardness (blue) and high-hardness (red) samples form distinct clusters in t-SNE space.*
+*PCA and t-SNE projections coloured by Vickers hardness. The superseded version of this figure was produced by a
+plotting script whose preprocessing had drifted from the modelling pipeline; the corrected version
+([`results/revision2/figures/fig07_pca_tsne.png`](results/revision2/figures/fig07_pca_tsne.png)) gives
+PC1 = 28.8% and PC2 = 17.5% (46.3% cumulative). Samples below 10 GPa and above 20 GPa separate partially,
+but the 60 intermediate samples overlap extensively — hardness is not organised into compact 2-D clusters.*
 
 ---
 
@@ -148,7 +158,9 @@ Interpretability Analysis
   <img src="results/figures/shap_waterfall_p123.png" width="800"/>
 </p>
 
-*SHAP feature contributions for P1 (low hardness, 6.5 GPa), P2 (high hardness, 18.3 GPa), and P3 (moderate hardness, 13.3 GPa). Base value = 14.933 GPa.*
+*SHAP feature contributions for P1 (6.5 GPa), P2 (18.3 GPa) and P3 (15.4 GPa). Base value = 14.933 GPa.
+These explanations come from the fixed-configuration interpretability XGBoost model
+(n_estimators=300, max_depth=5, lr=0.05), which is not the tuned model of the benchmark tables.*
 
 ---
 
@@ -158,7 +170,63 @@ Interpretability Analysis
   <img src="results/figures/paper_dendrogram.png" width="380"/>
 </p>
 
-*Left: RuleFit feature importance (sintering pressure, graphene content, and density are top predictors). Right: Ward-linkage dendrogram revealing three feature families — sintering process parameters, material composition, and graphene morphology.*
+*Left: RuleFit linear-term importance. Four linear terms survive the sparse fit — graphene content
+(coef −1.682), graphene type (+0.598), density (+0.594) and Si₃N₄ content (+0.277); sintering pressure
+enters the model through Boolean rules rather than as a linear term. Right: dendrogram of the correlation
+distance d = 1 − |r|. The revised version uses average linkage, which is the appropriate criterion for a
+supplied distance matrix, and shows three feature families — sintering process parameters, material
+composition, and graphene morphology.*
+
+---
+
+## Second Revision (August 2026)
+
+The material under `results/revision2/` and `scripts/revision2/` was produced for the second
+revision round of the manuscript. Nothing in the original analysis was re-run or replaced; these
+files add measurements, corrected presentations of already-published results, and the scripts
+that generate them.
+
+**What was added**
+
+| Item | Location |
+|---|---|
+| Eight figures redrawn at final printed size (vector PDF + 600 dpi PNG) | `results/revision2/figures/` |
+| RuleFit rule set converted from standardised to physical units | `results/revision2/tables/rulefit_rules_physical_units.csv` |
+| Leakage-free hyperparameter-selection re-analysis, per partition | `results/revision2/tables/nested_cv_30splits.csv` |
+| Rebuilt Table 4 (effect sizes and confidence intervals) | `results/revision2/tables/table04_ttest.tex` |
+| Scripts generating every figure and table above | `scripts/revision2/` |
+| Package versions used for the revision | `requirements-revision2.txt` |
+
+**Why the figures were redrawn.** The earlier figures were rendered on canvases 13–17 inches wide
+and then scaled into the 131 mm single-column text block of the journal template, which reduced
+every label by a factor of 1.8–3.9 and left the smallest type at roughly 3–4 pt. Each script now
+draws at the final printed width and refuses to exceed it.
+
+**Two corrections to exploratory figures.** The PCA/t-SNE script had drifted from the modelling
+pipeline (label encoding instead of target encoding, reference label retained, different engineered
+feature formulas), so ten of thirty-one columns reaching PCA were constant. The dendrogram was
+computed with Ward linkage, which is defined for Euclidean geometry and is not appropriate for a
+supplied correlation distance. Both are now generated from `scripts/revision2/data_pipeline.py`,
+the same module the models use. Neither figure enters any model, split or reported metric.
+
+**Reproducibility.** Under the versions pinned in `requirements-revision2.txt`, the XGBoost and
+SHAP results reproduce the released values to four decimal places, and the figure scripts assert
+this before plotting. RuleFit reproduces the released repeated-split mean R² only to within 0.003
+(0.766 against 0.769), because the tree-ensemble and coordinate-descent implementations changed
+between library releases.
+
+**Running them**
+
+```bash
+pip install -r requirements-revision2.txt
+cd scripts/revision2
+python fig01_boxplot.py        # and fig02, fig03_06, fig04, fig05_08, fig07
+python gen_table04.py          # rebuilds Table 4 from the analysis output
+python nested_cv_check.py      # selection-free re-analysis, ~15 min
+```
+
+Paths are resolved automatically from the repository layout by `scripts/revision2/paths.py`;
+no path editing is required. Set `SI3N4_DATA`, `SI3N4_RESULTS` or `SI3N4_OUT` to override.
 
 ---
 
@@ -216,13 +284,21 @@ The dataset (`data/data.xlsx`) aggregates published experimental results for gra
 
 ## Top Extracted RuleFit Rules
 
-| Rule | Coefficient | Support | Physical Meaning |
+RuleFit is fitted on standardised inputs, so the thresholds stored in
+`results/tables/rulefit_top_rules.csv` are z-scores of the training partition.
+Inverting that scaling recovers the physical thresholds shown below; the complete
+converted rule set is in
+[`results/revision2/tables/rulefit_rules_physical_units.csv`](results/revision2/tables/rulefit_rules_physical_units.csv).
+
+| Rule (physical units) | Coefficient | Support | Reading |
 |---|---|---|---|
 | Linear: Graphene (wt.%) | −1.682 | 1.00 | Globally, more graphene → lower hardness |
-| Load > th & Graphene Type > th & Density > th | +1.626 | 0.43 | High load + quality graphene + density → higher hardness |
-| Graphene% > th & Sint. Intensity ≤ th | −2.133 | 0.11 | Excess graphene + low sintering intensity → severe hardness loss |
-| Linear: Graphene Type (encoded) | +0.598 | 1.00 | Higher-quality graphene type globally increases hardness |
-| Sint. Temp > th & Si₃N₄% ≤ th | −1.017 | 0.25 | High temperature with low Si₃N₄ reduces hardness |
+| Load > 7.4 N & Graphene type (enc.) > 14.2 & Density > 87.1 % | +1.626 | 0.43 | High load, favourable graphene type and a dense body → higher hardness |
+| Graphene > 2.62 wt.% & Sintering intensity ≤ 6.25×10⁴ | −2.133 | 0.11 | Excess graphene under a low temperature–pressure product → severe hardness loss |
+| Linear: Graphene type (encoded) | +0.598 | 1.00 | Graphene type globally shifts hardness |
+| Sintering temperature > 1612 °C & Si₃N₄ ≤ 87.4 wt.% | −1.017 | 0.25 | High temperature with a low matrix fraction reduces hardness |
+| Sintering pressure ≤ 27.5 MPa | −0.812 | 0.29 | Insufficient pressure penalises hardness on its own |
+| Sintering pressure > 32.5 MPa & Graphene > 2 wt.% | +0.765 | 0.39 | Sufficient pressure offsets a high graphene loading |
 
 ---
 
@@ -253,7 +329,7 @@ If you use this code or dataset, please cite:
   title   = {Interpretable Machine Learning Framework for Predicting
              Vickers Hardness of Graphene-Added Si$_3$N$_4$ Ceramics},
   author  = {Salcan, Yunus Emre and others},
-  journal = {Journal of Materials Science},
+  journal = {Ceramics International},
   year    = {2026},
   note    = {Under review}
 }

@@ -1,0 +1,397 @@
+[
+  {
+    "point": 1,
+    "test_idx": 24,
+    "true_GPa": 6.5,
+    "rf_pred_GPa": 6.514,
+    "xgb_pred_GPa": 9.209,
+    "error_GPa": 0.014,
+    "category": "Good (<1.5 GPa)",
+    "key_features": {
+      "Graphene_wt%": 0.0,
+      "Density_%": 98.0,
+      "Sintering_Temp_C": 1750.0,
+      "Sintering_Press_MPa": 25.0
+    },
+    "linear_contributions": [
+      {
+        "feature": "Graphene (wt. %)",
+        "value": 8.0,
+        "coefficient": -0.3036,
+        "contribution": -2.4286
+      },
+      {
+        "feature": "Type of Graphene_encoded",
+        "value": 9.9,
+        "coefficient": 0.2805,
+        "contribution": 2.777
+      },
+      {
+        "feature": "Density (%)",
+        "value": 98.0,
+        "coefficient": 0.0806,
+        "contribution": 7.8972
+      },
+      {
+        "feature": "Si3N4 (wt%)",
+        "value": 85.5,
+        "coefficient": 0.0896,
+        "contribution": 7.6629
+      },
+      {
+        "feature": "sintering_intensity",
+        "value": 43750.0,
+        "coefficient": 0.0,
+        "contribution": 0.3101
+      }
+    ],
+    "rule_activations": [
+      {
+        "rule": "sintering_intensity <= 62500.0 & Graphene (wt. %) > 2.625",
+        "coefficient": -3.0338,
+        "importance": 0.9384,
+        "activated": true
+      },
+      {
+        "rule": "Load (N) > 7.400000095367432 & Type of Graphene_encoded > 14.23559284210205 & Density (%) > 87.13000",
+        "coefficient": 1.327,
+        "importance": 0.6567,
+        "activated": false
+      },
+      {
+        "rule": "Si3N4 (wt%) <= 87.375 & Sintering Temperature (°C) > 1612.5",
+        "coefficient": -1.153,
+        "importance": 0.4993,
+        "activated": true
+      },
+      {
+        "rule": "graphene_aspect_ratio <= 0.7969136238098145 & β-Si3N4 Content (%) > 14.0 & Density (%) > 86.33000183",
+        "coefficient": -0.6388,
+        "importance": 0.3161,
+        "activated": true
+      },
+      {
+        "rule": "Type of Graphene_encoded <= 18.690000534057617 & Graphene (wt. %) > 0.25 & Density (%) > 98.76499938",
+        "coefficient": -0.7918,
+        "importance": 0.2771,
+        "activated": false
+      }
+    ]
+  },
+  {
+    "point": 2,
+    "test_idx": 9,
+    "true_GPa": 18.3,
+    "rf_pred_GPa": 18.489,
+    "xgb_pred_GPa": 18.406,
+    "error_GPa": 0.189,
+    "category": "Good (<1.5 GPa)",
+    "key_features": {
+      "Graphene_wt%": 0.0,
+      "Density_%": 98.0,
+      "Sintering_Temp_C": 1600.0,
+      "Sintering_Press_MPa": 50.0
+    },
+    "linear_contributions": [
+      {
+        "feature": "Graphene (wt. %)",
+        "value": 0.0,
+        "coefficient": -0.3036,
+        "contribution": -0.0
+      },
+      {
+        "feature": "Type of Graphene_encoded",
+        "value": 14.2673,
+        "coefficient": 0.2805,
+        "contribution": 4.002
+      },
+      {
+        "feature": "Density (%)",
+        "value": 98.0,
+        "coefficient": 0.0806,
+        "contribution": 7.8972
+      },
+      {
+        "feature": "Si3N4 (wt%)",
+        "value": 90.0,
+        "coefficient": 0.0896,
+        "contribution": 8.0662
+      },
+      {
+        "feature": "sintering_intensity",
+        "value": 80000.0,
+        "coefficient": 0.0,
+        "contribution": 0.5671
+      }
+    ],
+    "rule_activations": [
+      {
+        "rule": "sintering_intensity <= 62500.0 & Graphene (wt. %) > 2.625",
+        "coefficient": -3.0338,
+        "importance": 0.9384,
+        "activated": false
+      },
+      {
+        "rule": "Load (N) > 7.400000095367432 & Type of Graphene_encoded > 14.23559284210205 & Density (%) > 87.13000",
+        "coefficient": 1.327,
+        "importance": 0.6567,
+        "activated": true
+      },
+      {
+        "rule": "Si3N4 (wt%) <= 87.375 & Sintering Temperature (°C) > 1612.5",
+        "coefficient": -1.153,
+        "importance": 0.4993,
+        "activated": false
+      },
+      {
+        "rule": "graphene_aspect_ratio <= 0.7969136238098145 & β-Si3N4 Content (%) > 14.0 & Density (%) > 86.33000183",
+        "coefficient": -0.6388,
+        "importance": 0.3161,
+        "activated": false
+      },
+      {
+        "rule": "Type of Graphene_encoded <= 18.690000534057617 & Graphene (wt. %) > 0.25 & Density (%) > 98.76499938",
+        "coefficient": -0.7918,
+        "importance": 0.2771,
+        "activated": false
+      }
+    ]
+  },
+  {
+    "point": 3,
+    "test_idx": 7,
+    "true_GPa": 15.4,
+    "rf_pred_GPa": 14.606,
+    "xgb_pred_GPa": 14.485,
+    "error_GPa": 0.794,
+    "category": "Good (<1.5 GPa)",
+    "key_features": {
+      "Graphene_wt%": 0.0,
+      "Density_%": 99.5,
+      "Sintering_Temp_C": 1700.0,
+      "Sintering_Press_MPa": 20.0
+    },
+    "linear_contributions": [
+      {
+        "feature": "Graphene (wt. %)",
+        "value": 0.0,
+        "coefficient": -0.3036,
+        "contribution": -0.0
+      },
+      {
+        "feature": "Type of Graphene_encoded",
+        "value": 14.2039,
+        "coefficient": 0.2805,
+        "contribution": 3.9843
+      },
+      {
+        "feature": "Density (%)",
+        "value": 99.5,
+        "coefficient": 0.0806,
+        "contribution": 8.0181
+      },
+      {
+        "feature": "Si3N4 (wt%)",
+        "value": 90.0,
+        "coefficient": 0.0896,
+        "contribution": 8.0662
+      },
+      {
+        "feature": "sintering_intensity",
+        "value": 34000.0,
+        "coefficient": 0.0,
+        "contribution": 0.241
+      }
+    ],
+    "rule_activations": [
+      {
+        "rule": "sintering_intensity <= 62500.0 & Graphene (wt. %) > 2.625",
+        "coefficient": -3.0338,
+        "importance": 0.9384,
+        "activated": false
+      },
+      {
+        "rule": "Load (N) > 7.400000095367432 & Type of Graphene_encoded > 14.23559284210205 & Density (%) > 87.13000",
+        "coefficient": 1.327,
+        "importance": 0.6567,
+        "activated": false
+      },
+      {
+        "rule": "Si3N4 (wt%) <= 87.375 & Sintering Temperature (°C) > 1612.5",
+        "coefficient": -1.153,
+        "importance": 0.4993,
+        "activated": false
+      },
+      {
+        "rule": "graphene_aspect_ratio <= 0.7969136238098145 & β-Si3N4 Content (%) > 14.0 & Density (%) > 86.33000183",
+        "coefficient": -0.6388,
+        "importance": 0.3161,
+        "activated": true
+      },
+      {
+        "rule": "Type of Graphene_encoded <= 18.690000534057617 & Graphene (wt. %) > 0.25 & Density (%) > 98.76499938",
+        "coefficient": -0.7918,
+        "importance": 0.2771,
+        "activated": false
+      }
+    ]
+  },
+  {
+    "point": 4,
+    "test_idx": 5,
+    "true_GPa": 12.5,
+    "rf_pred_GPa": 13.326,
+    "xgb_pred_GPa": 13.946,
+    "error_GPa": 0.826,
+    "category": "Good (<1.5 GPa)",
+    "key_features": {
+      "Graphene_wt%": 0.0,
+      "Density_%": 99.9,
+      "Sintering_Temp_C": 1750.0,
+      "Sintering_Press_MPa": 25.0
+    },
+    "linear_contributions": [
+      {
+        "feature": "Graphene (wt. %)",
+        "value": 0.0,
+        "coefficient": -0.3036,
+        "contribution": -0.0
+      },
+      {
+        "feature": "Type of Graphene_encoded",
+        "value": 9.9,
+        "coefficient": 0.2805,
+        "contribution": 2.777
+      },
+      {
+        "feature": "Density (%)",
+        "value": 99.9,
+        "coefficient": 0.0806,
+        "contribution": 8.0503
+      },
+      {
+        "feature": "Si3N4 (wt%)",
+        "value": 93.5,
+        "coefficient": 0.0896,
+        "contribution": 8.3798
+      },
+      {
+        "feature": "sintering_intensity",
+        "value": 43750.0,
+        "coefficient": 0.0,
+        "contribution": 0.3101
+      }
+    ],
+    "rule_activations": [
+      {
+        "rule": "sintering_intensity <= 62500.0 & Graphene (wt. %) > 2.625",
+        "coefficient": -3.0338,
+        "importance": 0.9384,
+        "activated": false
+      },
+      {
+        "rule": "Load (N) > 7.400000095367432 & Type of Graphene_encoded > 14.23559284210205 & Density (%) > 87.13000",
+        "coefficient": 1.327,
+        "importance": 0.6567,
+        "activated": false
+      },
+      {
+        "rule": "Si3N4 (wt%) <= 87.375 & Sintering Temperature (°C) > 1612.5",
+        "coefficient": -1.153,
+        "importance": 0.4993,
+        "activated": false
+      },
+      {
+        "rule": "graphene_aspect_ratio <= 0.7969136238098145 & β-Si3N4 Content (%) > 14.0 & Density (%) > 86.33000183",
+        "coefficient": -0.6388,
+        "importance": 0.3161,
+        "activated": true
+      },
+      {
+        "rule": "Type of Graphene_encoded <= 18.690000534057617 & Graphene (wt. %) > 0.25 & Density (%) > 98.76499938",
+        "coefficient": -0.7918,
+        "importance": 0.2771,
+        "activated": false
+      }
+    ]
+  },
+  {
+    "point": 5,
+    "test_idx": 20,
+    "true_GPa": 27.0,
+    "rf_pred_GPa": 22.557,
+    "xgb_pred_GPa": 21.913,
+    "error_GPa": 4.443,
+    "category": "High (>3.5 GPa)",
+    "key_features": {
+      "Graphene_wt%": 0.0,
+      "Density_%": 99.9,
+      "Sintering_Temp_C": 1625.0,
+      "Sintering_Press_MPa": 50.0
+    },
+    "linear_contributions": [
+      {
+        "feature": "Graphene (wt. %)",
+        "value": 2.012,
+        "coefficient": -0.3036,
+        "contribution": -0.6108
+      },
+      {
+        "feature": "Type of Graphene_encoded",
+        "value": 22.72,
+        "coefficient": 0.2805,
+        "contribution": 6.3731
+      },
+      {
+        "feature": "Density (%)",
+        "value": 99.9,
+        "coefficient": 0.0806,
+        "contribution": 8.0503
+      },
+      {
+        "feature": "Si3N4 (wt%)",
+        "value": 90.988,
+        "coefficient": 0.0896,
+        "contribution": 8.1547
+      },
+      {
+        "feature": "sintering_intensity",
+        "value": 81250.0,
+        "coefficient": 0.0,
+        "contribution": 0.576
+      }
+    ],
+    "rule_activations": [
+      {
+        "rule": "sintering_intensity <= 62500.0 & Graphene (wt. %) > 2.625",
+        "coefficient": -3.0338,
+        "importance": 0.9384,
+        "activated": false
+      },
+      {
+        "rule": "Load (N) > 7.400000095367432 & Type of Graphene_encoded > 14.23559284210205 & Density (%) > 87.13000",
+        "coefficient": 1.327,
+        "importance": 0.6567,
+        "activated": true
+      },
+      {
+        "rule": "Si3N4 (wt%) <= 87.375 & Sintering Temperature (°C) > 1612.5",
+        "coefficient": -1.153,
+        "importance": 0.4993,
+        "activated": false
+      },
+      {
+        "rule": "graphene_aspect_ratio <= 0.7969136238098145 & β-Si3N4 Content (%) > 14.0 & Density (%) > 86.33000183",
+        "coefficient": -0.6388,
+        "importance": 0.3161,
+        "activated": false
+      },
+      {
+        "rule": "Type of Graphene_encoded <= 18.690000534057617 & Graphene (wt. %) > 0.25 & Density (%) > 98.76499938",
+        "coefficient": -0.7918,
+        "importance": 0.2771,
+        "activated": false
+      }
+    ]
+  }
+]
